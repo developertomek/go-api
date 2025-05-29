@@ -26,7 +26,7 @@ type PostgresWorkoutStore struct {
 	db *sql.DB
 }
 
-func NewPostgresWorkoutstore(db *sql.DB) *PostgresWorkoutStore {
+func NewPostgresWorkoutStore(db *sql.DB) *PostgresWorkoutStore {
 	return &PostgresWorkoutStore{db: db}
 }
 
