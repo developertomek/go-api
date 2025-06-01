@@ -49,10 +49,10 @@ type User struct {
 	UpdatedAt    time.Time `json:"updated_at"`
 }
 
-var AnonymosUser = &User{}
+var AnonymousUser = &User{}
 
 func (u *User) IsAnonymous() bool {
-	return u == AnonymosUser
+	return u == AnonymousUser
 }
 
 type PostgresUserStore struct {

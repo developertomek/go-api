@@ -36,13 +36,13 @@ func (um *UserMiddleware) Authenticate(next http.Handler) http.Handler {
 		w.Header().Add("Vary", "Authorization")
 		authHeader := r.Header.Get("Authorization")
 		if authHeader == "" {
-			r = SetUser(r, store.AnonymosUser)
+			r = SetUser(r, store.AnonymousUser)
 			next.ServeHTTP(w, r)
 			return
 		}
 
 		headerParts := strings.Split(authHeader, " ")
-		if len(headerParts) != 2 || headerParts[0] != "Bearer " {
+		if len(headerParts) != 2 || headerParts[0] != "Bearer" {
 			utils.WriteJSON(w, http.StatusUnauthorized, utils.Envelope{"error": "invalid authorization header"})
 			return
 		}
